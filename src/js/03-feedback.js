@@ -38,6 +38,13 @@ function onTextAreaInput() {
 function onFormSubmit(e) {
   e.preventDefault();
 
+  const userEmail = e.target.email.value;
+  const userMessage = e.target.message.value;
+
+  if (userEmail === '' || userMessage === '') {
+    return false;
+  }
+
   e.target.reset();
   const localStorageData = JSON.parse(localStorage.getItem(FEEDBACK_FORM_KEY));
 
